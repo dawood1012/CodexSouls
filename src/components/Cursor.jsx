@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
+import { useTheme } from '../contexts/ThemeContext'
 
 export default function Cursor() {
+  const { theme } = useTheme()
+  const cursorColor = theme === 'dark' ? '#f5f5f0' : '#1a1a1a'
   const dotRef = useRef(null)
   const circleRef = useRef(null)
   const posRef = useRef({ x: 0, y: 0 })
@@ -77,10 +80,12 @@ export default function Cursor() {
         style={{
           width: '8px',
           height: '8px',
-          background: '#f5f5f0',
+          background: cursorColor,
           borderRadius: '50%',
           transform: `translate(-50%, -50%) scale(${dotScale})`,
-          boxShadow: '0 0 12px rgba(245, 245, 240, 0.6)',
+          boxShadow: theme === 'dark'
+            ? '0 0 12px rgba(245, 245, 240, 0.6)'
+            : '0 0 12px rgba(26, 26, 26, 0.4)',
           transition: 'transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s',
         }}
       />
@@ -92,11 +97,15 @@ export default function Cursor() {
         style={{
           width: '44px',
           height: '44px',
-          border: `${hovering ? '1px' : '2px'} solid #f5f5f0`,
+          border: `${hovering ? '1px' : '2px'} solid ${cursorColor}`,
           borderRadius: '50%',
           transform: `translate(-50%, -50%) scale(${circleScale})`,
-          boxShadow: '0 0 20px rgba(245, 245, 240, 0.3)',
-          background: hovering ? 'rgba(245, 245, 240, 0.08)' : 'transparent',
+          boxShadow: theme === 'dark'
+            ? '0 0 20px rgba(245, 245, 240, 0.3)'
+            : '0 0 20px rgba(26, 26, 26, 0.2)',
+          background: hovering
+            ? (theme === 'dark' ? 'rgba(245, 245, 240, 0.08)' : 'rgba(26, 26, 26, 0.08)')
+            : 'transparent',
           transition:
             'transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s, border 0.3s, opacity 0.2s',
         }}

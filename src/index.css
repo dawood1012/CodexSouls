@@ -14,16 +14,22 @@
   }
 
   body {
-    background-color: #000;
-    color: #fff;
+    background-color: #fafaf7;
+    color: #0a0a0a;
     font-family: sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+
+  html.dark body {
+    background-color: #000;
+    color: #fff;
   }
 
   ::selection {
-    background: rgba(124, 58, 237, 0.4);
-    color: #fff;
+    background: rgba(110, 91, 255, 0.4);
+    color: inherit;
   }
 }
 
@@ -34,33 +40,10 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-
-  .glow-purple {
-    box-shadow: 0 0 40px rgba(124, 58, 237, 0.35), 0 0 80px rgba(124, 58, 237, 0.15);
-  }
-
-  .card-glass {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-  }
-
-  .noise {
-    position: relative;
-  }
-
-  .noise::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-  }
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #060608; }
-::-webkit-scrollbar-thumb { background: #3b1a6e; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #7C3AED; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(110, 91, 255, 0.4); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #6e5bff; }

@@ -38,7 +38,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-black"
+      className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-white dark:bg-black transition-colors duration-500"
       style={{
         opacity: 1 - scrollProgress * 1.2,
         transform: `translateY(${scrollProgress * 100}px)`,
@@ -51,7 +51,7 @@ export default function Hero() {
         style={{
           transform: `translate(calc(-50% + ${mouse.x * 60}px), ${mouse.y * 30}px)`,
           background:
-            'radial-gradient(ellipse at 50% 100%, rgba(100,60,220,0.55) 0%, rgba(80,40,180,0.2) 45%, transparent 70%)',
+            'radial-gradient(ellipse at 50% 100%, rgba(100,60,220,0.4) 0%, rgba(80,40,180,0.15) 45%, transparent 70%)',
         }}
       />
 
@@ -60,7 +60,7 @@ export default function Hero() {
         {[...Array(20)].map((_, i) => (
           <span
             key={i}
-            className="absolute rounded-full bg-violet-400/30"
+            className="absolute rounded-full bg-violet-400/40 dark:bg-violet-400/30"
             style={{
               width: `${Math.random() * 3 + 1}px`,
               height: `${Math.random() * 3 + 1}px`,
@@ -81,7 +81,6 @@ export default function Hero() {
           transition: 'transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)',
         }}
       >
-        {/* Tag row */}
         <div
           className="flex items-center gap-6 mb-8"
           style={{
@@ -104,15 +103,14 @@ export default function Hero() {
                 {tag}
               </span>
               {i < tags.length - 1 && (
-                <span className="w-[3px] h-[3px] rounded-full bg-white/80 inline-block" />
+                <span className="w-[3px] h-[3px] rounded-full bg-black/80 dark:bg-white/80 inline-block" />
               )}
             </span>
           ))}
         </div>
 
-        {/* Headline */}
         <h1
-          className="text-6xl sm:text-7xl md:text-8xl font-bold text-white leading-[1.04] tracking-tight"
+          className="text-6xl sm:text-7xl md:text-8xl font-bold text-black dark:text-white leading-[1.04] tracking-tight"
           style={{
             opacity: mounted ? 1 : 0,
             transform: mounted ? 'translateY(0)' : 'translateY(40px)',
@@ -123,9 +121,8 @@ export default function Hero() {
           <br />a Soul
         </h1>
 
-        {/* Subtitle */}
         <p
-          className="mt-7 text-lg text-white/45 max-w-lg leading-relaxed"
+          className="mt-7 text-lg text-black/55 dark:text-white/45 max-w-lg leading-relaxed"
           style={{
             opacity: mounted ? 1 : 0,
             transform: mounted ? 'translateY(0)' : 'translateY(30px)',
@@ -136,7 +133,6 @@ export default function Hero() {
         </p>
       </div>
 
-      {/* Float keyframes */}
       <style>{`
         @keyframes float-0 { 0%,100% { transform: translateY(0) translateX(0); } 50% { transform: translateY(-30px) translateX(15px); } }
         @keyframes float-1 { 0%,100% { transform: translateY(0) translateX(0); } 50% { transform: translateY(20px) translateX(-15px); } }
