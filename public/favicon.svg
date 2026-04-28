@@ -1,5 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <rect width="32" height="32" rx="8" fill="#7C3AED"/>
-  <path d="M10 22L16 10L22 22" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M12 18H20" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="geometricPrecision">
+  <!-- Top face -->
+  <polygon points="32,2 62,18 32,34 2,18" fill="#0a0a0a"/>
+
+  <!-- Left face (with C cutout silhouette) -->
+  <polygon points="2,18 32,34 32,62 2,46" fill="#0a0a0a"/>
+  <!-- C letter — drawn isometric on left face -->
+  <path d="M 8 24 L 24 33 L 24 38 L 13 32 L 13 50 L 24 56 L 24 61 L 8 52 Z" fill="#fff"/>
+  <path d="M 18 36 L 24 39 L 24 44 L 18 41 Z" fill="#0a0a0a"/>
+
+  <!-- Right face (gray/silver, with S cutout silhouette) -->
+  <polygon points="62,18 32,34 32,62 62,46" fill="#b8b8b8"/>
+  <!-- S letter — drawn isometric on right face -->
+  <path d="M 56 22 L 40 31 L 40 36 L 50 30 L 50 35 L 40 41 L 40 50 L 56 41 L 56 36 L 46 42 L 46 37 L 56 31 Z" fill="#fff"/>
 </svg>

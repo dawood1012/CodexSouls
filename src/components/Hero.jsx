@@ -38,7 +38,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-white dark:bg-black transition-colors duration-500"
+      className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-transparent dark:bg-black transition-colors duration-500 ambient-orbs"
       style={{
         opacity: 1 - scrollProgress * 1.2,
         transform: `translateY(${scrollProgress * 100}px)`,
@@ -51,7 +51,7 @@ export default function Hero() {
         style={{
           transform: `translate(calc(-50% + ${mouse.x * 60}px), ${mouse.y * 30}px)`,
           background:
-            'radial-gradient(ellipse at 50% 100%, rgba(100,60,220,0.4) 0%, rgba(80,40,180,0.15) 45%, transparent 70%)',
+            'radial-gradient(ellipse at 50% 100%, rgba(110,91,255,0.22) 0%, rgba(110,91,255,0.08) 45%, transparent 70%)',
         }}
       />
 
@@ -60,7 +60,7 @@ export default function Hero() {
         {[...Array(20)].map((_, i) => (
           <span
             key={i}
-            className="absolute rounded-full bg-violet-400/40 dark:bg-violet-400/30"
+            className="absolute rounded-full bg-violet-500/25 dark:bg-violet-400/30"
             style={{
               width: `${Math.random() * 3 + 1}px`,
               height: `${Math.random() * 3 + 1}px`,
@@ -103,14 +103,14 @@ export default function Hero() {
                 {tag}
               </span>
               {i < tags.length - 1 && (
-                <span className="w-[3px] h-[3px] rounded-full bg-black/80 dark:bg-white/80 inline-block" />
+                <span className="w-[3px] h-[3px] rounded-full bg-zinc-400 dark:bg-white/80 inline-block" />
               )}
             </span>
           ))}
         </div>
 
         <h1
-          className="text-6xl sm:text-7xl md:text-8xl font-bold text-black dark:text-white leading-[1.04] tracking-tight"
+          className="text-6xl sm:text-7xl md:text-8xl font-bold text-zinc-900 dark:text-white leading-[1.04] tracking-tight"
           style={{
             opacity: mounted ? 1 : 0,
             transform: mounted ? 'translateY(0)' : 'translateY(40px)',
@@ -122,7 +122,7 @@ export default function Hero() {
         </h1>
 
         <p
-          className="mt-7 text-lg text-black/55 dark:text-white/45 max-w-lg leading-relaxed"
+          className="mt-7 text-lg text-zinc-600 dark:text-white/45 max-w-lg leading-relaxed"
           style={{
             opacity: mounted ? 1 : 0,
             transform: mounted ? 'translateY(0)' : 'translateY(30px)',

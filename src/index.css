@@ -14,8 +14,8 @@
   }
 
   body {
-    background-color: #fafaf7;
-    color: #0a0a0a;
+    background-color: #ffffff;
+    color: #18181b;
     font-family: sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -35,11 +35,70 @@
 
 @layer utilities {
   .gradient-text {
+    background: linear-gradient(135deg, #6e5bff 0%, #8b7cff 50%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  html.dark .gradient-text {
     background: linear-gradient(135deg, #a78bfa 0%, #818cf8 50%, #c4b5fd 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
+  /* Grain texture overlay */
+  .grain {
+    position: relative;
+  }
+  .grain::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.08 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    z-index: 0;
+  }
+  html.dark .grain::before { opacity: 0; }
+
+  /* Soft section gradient (light mode only) */
+  .section-light-bg {
+    background:
+      linear-gradient(180deg, transparent 0%, rgba(110,91,255,0.025) 50%, transparent 100%),
+      #fafaff;
+  }
+  html.dark .section-light-bg {
+    background: #000;
+  }
+
+  /* Mesh-style ambient orbs */
+  .ambient-orbs::before,
+  .ambient-orbs::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .ambient-orbs::before {
+    width: 500px;
+    height: 500px;
+    top: -150px;
+    left: -150px;
+    background: radial-gradient(circle, rgba(110,91,255,0.10) 0%, transparent 70%);
+  }
+  .ambient-orbs::after {
+    width: 600px;
+    height: 600px;
+    bottom: -200px;
+    right: -200px;
+    background: radial-gradient(circle, rgba(168,85,247,0.07) 0%, transparent 70%);
+  }
+  html.dark .ambient-orbs::before,
+  html.dark .ambient-orbs::after { display: none; }
 }
 
 /* Scrollbar */

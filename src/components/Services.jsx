@@ -36,14 +36,14 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="bg-white dark:bg-black py-32 transition-colors duration-500">
-      <div className="max-w-7xl mx-auto px-8 lg:px-12">
+    <section id="services" className="relative bg-transparent dark:bg-black py-32 transition-colors duration-500 ambient-orbs overflow-hidden">
+      <div className="relative z-10 max-w-7xl mx-auto px-8 lg:px-12">
         <Reveal>
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-20 border-b border-black/8 dark:border-white/8 pb-12">
-            <h2 className="text-5xl sm:text-6xl font-bold text-black dark:text-white tracking-tight leading-tight max-w-sm">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-20 border-b border-zinc-200 dark:border-white/8 pb-12">
+            <h2 className="text-5xl sm:text-6xl font-bold text-zinc-900 dark:text-white tracking-tight leading-tight max-w-sm">
               Our<br />Services
             </h2>
-            <p className="text-black/50 dark:text-white/40 text-base max-w-xs leading-relaxed">
+            <p className="text-zinc-600 dark:text-white/40 text-base max-w-xs leading-relaxed">
               Full-spectrum capabilities from strategy to support.
             </p>
           </div>
@@ -54,7 +54,14 @@ export default function Services() {
             <Reveal key={title} delay={i * 100} direction="up">
               <TiltCard className="relative h-[500px] rounded-2xl overflow-hidden cursor-pointer">
                 <div className="group relative h-full w-full">
-                  <div className="absolute inset-0 bg-gradient-to-br from-black/[0.04] to-black/[0.01] dark:from-white/5 dark:to-white/[0.02] border border-black/10 dark:border-white/10 rounded-2xl transition-all duration-500 group-hover:from-black/8 group-hover:to-black/3 dark:group-hover:from-white/10 dark:group-hover:to-white/5 group-hover:border-violet-400/50" />
+                  <div className="absolute inset-0 bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-white/10 rounded-2xl transition-all duration-500 group-hover:border-violet-400/60 shadow-[0_4px_20px_rgba(24,24,27,0.08)] dark:shadow-none group-hover:shadow-[0_12px_40px_rgba(110,91,255,0.18)] dark:group-hover:shadow-none" />
+
+                  <div
+                    className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 dark:opacity-100 transition-opacity duration-500"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)',
+                    }}
+                  />
 
                   <div
                     className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"
@@ -65,24 +72,23 @@ export default function Services() {
 
                   <div className="relative h-full flex flex-col justify-between p-12">
                     <div className="flex-1 flex items-end">
-                      <h3 className="text-6xl font-bold text-black dark:text-white group-hover:opacity-0 group-hover:-translate-y-4 transition-all duration-500">
+                      <h3 className="text-6xl font-bold text-zinc-900 dark:text-white group-hover:opacity-0 group-hover:-translate-y-4 transition-all duration-500">
                         {title}
                       </h3>
                     </div>
 
                     <div className="absolute inset-0 p-12 flex flex-col justify-end opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
                       <div className="mb-12">
-                        <h3 className="text-5xl font-bold text-black dark:text-white mb-6">{title}</h3>
-                        <p className="text-black/60 dark:text-white/50 text-base leading-relaxed max-w-sm">{description}</p>
+                        <h3 className="text-5xl font-bold text-zinc-900 dark:text-white mb-6">{title}</h3>
+                        <p className="text-zinc-600 dark:text-white/50 text-base leading-relaxed max-w-sm">{description}</p>
                       </div>
                       <div className="flex flex-col gap-3">
                         {skills.map((skill, idx) => (
                           <span
                             key={idx}
-                            className="text-sm text-black/65 dark:text-white/60 font-medium"
+                            className="text-sm text-zinc-700 dark:text-white/60 font-medium opacity-0 -translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500"
                             style={{
-                              opacity: 0,
-                              animation: `slideIn 0.5s cubic-bezier(0.22,1,0.36,1) ${0.15 + idx * 0.07}s forwards`,
+                              transitionDelay: `${150 + idx * 70}ms`,
                             }}
                           >
                             {skill}

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Menu, X } from 'lucide-react'
 import ThemeToggle from './ThemeToggle'
+import Logo from './Logo'
 
 const links = ['Services', 'Work', 'Company', 'Contact']
 
@@ -31,41 +32,31 @@ export default function Navbar() {
         hidden ? '-translate-y-full' : 'translate-y-0'
       } ${
         scrolled
-          ? 'bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-black/5 dark:border-white/5'
+          ? 'bg-white/70 dark:bg-black/80 backdrop-blur-xl border-b border-zinc-200/60 dark:border-white/5'
           : 'bg-transparent'
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-8 lg:px-12 h-16 flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-8 lg:px-12 h-20 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2.5 group shrink-0">
-          <span className="w-6 h-6 flex items-center justify-center">
-            <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
-              <path d="M8 17L4 13L8 9" className="stroke-black dark:stroke-white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M16 7L20 11L16 15" className="stroke-black dark:stroke-white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M13 7L11 17" className="stroke-black dark:stroke-white" strokeWidth="2.2" strokeLinecap="round"/>
-            </svg>
-          </span>
-          <span className="font-semibold text-black dark:text-white text-[15px] tracking-tight">
-            CodexSouls
-          </span>
+        <a href="#" className="flex items-center group shrink-0 hover:scale-105 transition-transform duration-300">
+          <Logo height={56} />
         </a>
 
-        {/* Desktop links — pushed left with mr-auto + ml-20 */}
-        <ul className="hidden md:flex items-center gap-12 ml-20 mr-auto">
-          {links.map((link) => (
-            <li key={link}>
-              <a
-                href={`#${link.toLowerCase()}`}
-                className="text-sm text-black dark:text-white font-medium transition-all duration-200 px-4 py-1.5 rounded-full hover:bg-black/10 dark:hover:bg-white/10 flex items-center justify-center"
-              >
-                {link}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        {/* Theme toggle */}
-        <div className="hidden md:block">
+        {/* Right side — links + toggle grouped together */}
+        <div className="hidden md:flex items-center gap-8">
+          <ul className="flex items-center gap-2">
+            {links.map((link) => (
+              <li key={link}>
+                <a
+                  href={`#${link.toLowerCase()}`}
+                  className="text-sm text-black dark:text-white font-medium transition-all duration-200 px-4 py-1.5 rounded-full hover:bg-black/10 dark:hover:bg-white/10 flex items-center justify-center"
+                >
+                  {link}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className="w-px h-5 bg-black/10 dark:bg-white/10" />
           <ThemeToggle />
         </div>
 

@@ -8,7 +8,7 @@ const projects = [
     title: 'NeuralDesk',
     desc: 'An AI-powered customer support platform that cut response time by 73% for a Series B startup.',
     bgDark: 'dark:bg-[#0d0d1a]',
-    bgLight: 'bg-violet-50',
+    bgLight: 'bg-white',
     accent: '#6e5bff',
   },
   {
@@ -16,7 +16,7 @@ const projects = [
     title: 'PocketLedger',
     desc: 'A personal finance app with smart spending insights — 50k downloads in the first month.',
     bgDark: 'dark:bg-[#0d0a1a]',
-    bgLight: 'bg-purple-50',
+    bgLight: 'bg-white',
     accent: '#a855f7',
   },
   {
@@ -24,7 +24,7 @@ const projects = [
     title: 'Versa Store',
     desc: 'Headless commerce platform with sub-second load times and a 3× uplift in conversion.',
     bgDark: 'dark:bg-[#080d1a]',
-    bgLight: 'bg-blue-50',
+    bgLight: 'bg-white',
     accent: '#3b82f6',
   },
   {
@@ -32,7 +32,7 @@ const projects = [
     title: 'Luminary OS',
     desc: 'A complete design system and brand identity for a healthcare startup entering 4 new markets.',
     bgDark: 'dark:bg-[#080f12]',
-    bgLight: 'bg-emerald-50',
+    bgLight: 'bg-white',
     accent: '#10b981',
   },
   {
@@ -40,7 +40,7 @@ const projects = [
     title: 'Cortex Notes',
     desc: 'A second-brain note-taking app with AI search — featured on Product Hunt #1 of the week.',
     bgDark: 'dark:bg-[#0a0d18]',
-    bgLight: 'bg-amber-50',
+    bgLight: 'bg-white',
     accent: '#f59e0b',
   },
   {
@@ -48,7 +48,7 @@ const projects = [
     title: 'StackForge',
     desc: 'A self-hosted CI/CD platform built for indie teams. Deploys 5× faster than the alternatives.',
     bgDark: 'dark:bg-[#0e0a14]',
-    bgLight: 'bg-pink-50',
+    bgLight: 'bg-white',
     accent: '#ec4899',
   },
 ]
@@ -57,12 +57,11 @@ function ProjectCard({ project, isRight }) {
   const { tag, title, desc, bgDark, bgLight, accent } = project
   return (
     <TiltCard
-      className={`relative ${bgLight} ${bgDark} rounded-2xl overflow-hidden cursor-pointer min-h-[420px] transition-colors duration-500`}
+      className={`relative ${bgLight} ${bgDark} rounded-2xl overflow-hidden cursor-pointer min-h-[420px] transition-all duration-500 border border-zinc-200 dark:border-transparent shadow-[0_4px_20px_rgba(24,24,27,0.08)] dark:shadow-none hover:shadow-[0_12px_40px_rgba(110,91,255,0.2)] dark:hover:shadow-none`}
       maxTilt={6}
     >
       <div
         className="group relative h-full w-full p-10 flex flex-col justify-between transition-all duration-500"
-        style={{ boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.05)' }}
       >
         <div
           className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl"
@@ -78,14 +77,14 @@ function ProjectCard({ project, isRight }) {
           >
             {tag}
           </span>
-          <h3 className="text-3xl font-bold text-black dark:text-white mt-3 mb-4 group-hover:translate-x-1 transition-transform duration-500">
+          <h3 className="text-3xl font-bold text-zinc-900 dark:text-white mt-3 mb-4 group-hover:translate-x-1 transition-transform duration-500">
             {title}
           </h3>
-          <p className="text-black/55 dark:text-white/40 text-sm leading-relaxed max-w-sm group-hover:text-black/70 dark:group-hover:text-white/55 transition-colors duration-500">
+          <p className="text-zinc-600 dark:text-white/40 text-sm leading-relaxed max-w-sm group-hover:text-zinc-800 dark:group-hover:text-white/55 transition-colors duration-500">
             {desc}
           </p>
         </div>
-        <div className="relative mt-8 flex items-center gap-2 text-black/40 dark:text-white/25 group-hover:text-black dark:group-hover:text-white/85 group-hover:gap-3 transition-all duration-500 text-sm font-medium">
+        <div className="relative mt-8 flex items-center gap-2 text-zinc-500 dark:text-white/25 group-hover:text-zinc-900 dark:group-hover:text-white/85 group-hover:gap-3 transition-all duration-500 text-sm font-medium">
           Read Case Study
           <ArrowUpRight
             size={14}
@@ -104,16 +103,16 @@ export default function Work() {
   }
 
   return (
-    <section id="work" className="bg-white dark:bg-black py-32 transition-colors duration-500">
+    <section id="work" className="relative bg-transparent dark:bg-black py-32 transition-colors duration-500 overflow-hidden">
       <div className="max-w-7xl mx-auto px-8 lg:px-12">
         <Reveal>
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-20 border-b border-black/8 dark:border-white/8 pb-12">
-            <h2 className="text-5xl sm:text-6xl font-bold text-black dark:text-white tracking-tight leading-tight max-w-sm">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-20 border-b border-zinc-200 dark:border-white/8 pb-12">
+            <h2 className="text-5xl sm:text-6xl font-bold text-zinc-900 dark:text-white tracking-tight leading-tight max-w-sm">
               Selected<br />Work
             </h2>
             <a
               href="#contact"
-              className="inline-flex items-center gap-1.5 text-sm text-black/50 dark:text-white/40 hover:text-black dark:hover:text-white transition-colors font-medium hover:gap-3"
+              className="inline-flex items-center gap-1.5 text-sm text-zinc-600 dark:text-white/40 hover:text-zinc-900 dark:hover:text-white transition-colors font-medium hover:gap-3"
             >
               View all projects <ArrowUpRight size={14} />
             </a>

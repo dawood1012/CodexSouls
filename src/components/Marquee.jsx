@@ -6,9 +6,17 @@ const companies = [
 
 export default function Marquee() {
   return (
-    <div className="relative w-full overflow-hidden bg-white dark:bg-black py-16 transition-colors duration-500">
+    <div className="relative w-full overflow-hidden bg-transparent dark:bg-black py-16 transition-colors duration-500">
+      {/* Light mode subtle tint */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none dark:hidden"
+        style={{
+          background: 'linear-gradient(180deg, rgba(110, 91, 255, 0.06) 0%, transparent 60%)',
+        }}
+      />
+      {/* Dark mode tint */}
+      <div
+        className="absolute inset-0 pointer-events-none hidden dark:block"
         style={{
           background: 'linear-gradient(180deg, rgba(110, 91, 255, 0.15) 0%, transparent 50%)',
         }}
@@ -21,7 +29,7 @@ export default function Marquee() {
         >
           {[...companies, ...companies].map((company, i) => (
             <span key={i} className="inline-flex items-center gap-8 shrink-0">
-              <span className="text-2xl font-bold tracking-widest uppercase text-black dark:text-white">
+              <span className="text-2xl font-bold tracking-widest uppercase text-zinc-900 dark:text-white">
                 {company}
               </span>
               <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: '#6e5bff' }} />
