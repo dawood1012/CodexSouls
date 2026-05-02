@@ -44,7 +44,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-zinc-200 dark:border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-zinc-500 dark:text-white/20 text-xs">© {new Date().getFullYear()} CodexSouls. All rights reserved.</p>
+          <p className="text-zinc-500 dark:text-white/20 text-xs">© {new Date().getFullYear()}. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <a href="#" className="text-xs text-zinc-500 dark:text-white/20 hover:text-zinc-700 dark:hover:text-white/40 transition-colors">Privacy</a>
             <a href="#" className="text-xs text-zinc-500 dark:text-white/20 hover:text-zinc-700 dark:hover:text-white/40 transition-colors">Terms</a>

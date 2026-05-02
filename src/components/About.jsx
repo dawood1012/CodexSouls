@@ -56,7 +56,7 @@ export default function About() {
                 We build like<br />it matters.
               </h2>
               <p className="mt-8 text-zinc-600 dark:text-white/40 text-base leading-relaxed">
-                CodexSouls is a boutique digital studio. We partner with startups and
+                We're a boutique digital studio. We partner with startups and
                 growth-stage companies to turn ambitious ideas into products people
                 actually love to use.
               </p>
