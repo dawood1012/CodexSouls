@@ -17,7 +17,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="bg-white dark:bg-black border-t border-zinc-200 dark:border-white/5 transition-colors duration-500">
+    <footer className="bg-white/60 backdrop-blur-md dark:bg-black dark:backdrop-blur-none border-t border-zinc-200 dark:border-white/5 transition-colors duration-500">
       <div className="max-w-7xl mx-auto px-8 lg:px-12 py-16">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
           <a href="#" className="flex items-center">

@@ -1,4 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
+import GeometricShapes from './GeometricShapes'
+import RotatingBadge from './RotatingBadge'
 
 const tags = ['AI', 'Web', 'Mobile', 'Design']
 
@@ -73,6 +75,21 @@ export default function Hero() {
         ))}
       </div>
 
+      {/* Decorative geometric shapes — light-mode mood-board feel */}
+      <GeometricShapes />
+
+      {/* Rotating availability badge — top-right */}
+      <div
+        className="hidden lg:block absolute top-28 right-12 z-20"
+        style={{
+          opacity: mounted ? 1 : 0,
+          transform: mounted ? 'scale(1)' : 'scale(0.6)',
+          transition: 'opacity 1s ease 1.2s, transform 1s cubic-bezier(0.22,1,0.36,1) 1.2s',
+        }}
+      >
+        <RotatingBadge />
+      </div>
+
       {/* Content */}
       <div
         className="relative z-10 flex flex-col items-center text-center px-6 max-w-4xl mx-auto mt-16"
@@ -110,7 +127,7 @@ export default function Hero() {
         </div>
 
         <h1
-          className="text-6xl sm:text-7xl md:text-8xl font-bold text-zinc-900 dark:text-white leading-[1.04] tracking-tight"
+          className="text-6xl sm:text-7xl md:text-8xl font-bold gradient-text-warm dark:text-white leading-[1.04] tracking-tight"
           style={{
             opacity: mounted ? 1 : 0,
             transform: mounted ? 'translateY(0)' : 'translateY(40px)',

@@ -14,17 +14,58 @@
   }
 
   body {
-    background-color: #ffffff;
+    background-color: #fafaff;
     color: #18181b;
     font-family: sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transition: background-color 0.5s ease, color 0.5s ease;
+    position: relative;
+  }
+
+  /* Animated gradient mesh — only visible in light mode */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: -10%;
+    z-index: -2;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 700px 600px at 15% 10%, rgba(168,85,247,0.20) 0%, transparent 55%),
+      radial-gradient(ellipse 800px 700px at 85% 25%, rgba(110,91,255,0.17) 0%, transparent 60%),
+      radial-gradient(ellipse 600px 500px at 25% 80%, rgba(236,72,153,0.13) 0%, transparent 55%),
+      radial-gradient(ellipse 700px 600px at 90% 90%, rgba(59,130,246,0.11) 0%, transparent 60%);
+    animation: mesh-shift 22s ease-in-out infinite;
+    transition: opacity 0.5s ease;
+  }
+
+  /* Dotted grid pattern — only visible in light mode */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image: radial-gradient(circle, rgba(110,91,255,0.14) 1px, transparent 1px);
+    background-size: 28px 28px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, #000 35%, transparent 100%);
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, #000 35%, transparent 100%);
+    transition: opacity 0.5s ease;
+  }
+
+  @keyframes mesh-shift {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    33%      { transform: translate3d(-30px, 20px, 0) scale(1.05); }
+    66%      { transform: translate3d(20px, -30px, 0) scale(0.98); }
   }
 
   html.dark body {
     background-color: #000;
     color: #fff;
+  }
+  html.dark body::before,
+  html.dark body::after {
+    opacity: 0;
   }
 
   ::selection {
@@ -48,6 +89,31 @@
     background-clip: text;
   }
 
+  /* Vibrant warm-to-cool gradient for hero headline (light mode) */
+  .gradient-text-warm {
+    background: linear-gradient(135deg, #18181b 0%, #6e5bff 50%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  html.dark .gradient-text-warm {
+    background: none;
+    -webkit-text-fill-color: #fff;
+    color: #fff;
+  }
+
+  /* Memphis-style offset shadow card (light mode only) */
+  .offset-card {
+    box-shadow: 6px 6px 0 0 rgba(110,91,255,0.18);
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+  }
+  .offset-card:hover {
+    box-shadow: 10px 10px 0 0 rgba(110,91,255,0.30);
+    transform: translate(-2px, -2px);
+  }
+  html.dark .offset-card { box-shadow: none; }
+  html.dark .offset-card:hover { box-shadow: none; transform: none; }
+
   /* Grain texture overlay */
   .grain {
     position: relative;
@@ -63,11 +129,9 @@
   }
   html.dark .grain::before { opacity: 0; }
 
-  /* Soft section gradient (light mode only) */
+  /* Soft section gradient (light mode only) — now transparent so mesh shines through */
   .section-light-bg {
-    background:
-      linear-gradient(180deg, transparent 0%, rgba(110,91,255,0.025) 50%, transparent 100%),
-      #fafaff;
+    background: transparent;
   }
   html.dark .section-light-bg {
     background: #000;
@@ -88,17 +152,28 @@
     height: 500px;
     top: -150px;
     left: -150px;
-    background: radial-gradient(circle, rgba(110,91,255,0.10) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(110,91,255,0.18) 0%, transparent 70%);
+    animation: orb-float-a 18s ease-in-out infinite;
   }
   .ambient-orbs::after {
     width: 600px;
     height: 600px;
     bottom: -200px;
     right: -200px;
-    background: radial-gradient(circle, rgba(168,85,247,0.07) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(236,72,153,0.13) 0%, transparent 70%);
+    animation: orb-float-b 22s ease-in-out infinite;
   }
   html.dark .ambient-orbs::before,
   html.dark .ambient-orbs::after { display: none; }
+
+  @keyframes orb-float-a {
+    0%,100% { transform: translate(0, 0); }
+    50%     { transform: translate(80px, 60px); }
+  }
+  @keyframes orb-float-b {
+    0%,100% { transform: translate(0, 0); }
+    50%     { transform: translate(-70px, -50px); }
+  }
 }
 
 /* Scrollbar */

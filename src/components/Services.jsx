@@ -54,7 +54,7 @@ export default function Services() {
             <Reveal key={title} delay={i * 100} direction="up">
               <TiltCard className="relative h-[500px] rounded-2xl overflow-hidden cursor-pointer">
                 <div className="group relative h-full w-full">
-                  <div className="absolute inset-0 bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-white/10 rounded-2xl transition-all duration-500 group-hover:border-violet-400/60 shadow-[0_4px_20px_rgba(24,24,27,0.08)] dark:shadow-none group-hover:shadow-[0_12px_40px_rgba(110,91,255,0.18)] dark:group-hover:shadow-none" />
+                  <div className="offset-card absolute inset-0 bg-white/95 backdrop-blur-sm dark:bg-zinc-950 border-2 border-zinc-900/8 dark:border-white/10 rounded-2xl transition-all duration-500 group-hover:border-violet-400 dark:group-hover:border-violet-400/60 dark:shadow-none dark:group-hover:shadow-none" />
 
                   <div
                     className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 dark:opacity-100 transition-opacity duration-500"

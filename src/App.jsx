@@ -13,7 +13,7 @@ import Footer from './components/Footer'
 export default function App() {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white overflow-x-hidden transition-colors duration-500">
+      <div className="min-h-screen bg-transparent dark:bg-black text-black dark:text-white overflow-x-hidden transition-colors duration-500">
         <Cursor />
         <ScrollProgress />
         <Navbar />
