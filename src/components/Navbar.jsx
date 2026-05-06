@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { Menu, X } from 'lucide-react'
+import { Link, useLocation } from 'react-router-dom'
 import ThemeToggle from './ThemeToggle'
 import Logo from './Logo'
 
@@ -38,9 +39,9 @@ export default function Navbar() {
     >
       <nav className="max-w-7xl mx-auto px-8 lg:px-12 h-20 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center group shrink-0 hover:scale-105 transition-transform duration-300">
+        <Link to="/" className="flex items-center group shrink-0 hover:scale-105 transition-transform duration-300">
           <Logo height={56} />
-        </a>
+        </Link>
 
         {/* Right side — links + toggle grouped together */}
         <div className="hidden md:flex items-center gap-8">
@@ -55,6 +56,14 @@ export default function Navbar() {
                 </a>
               </li>
             ))}
+            <li>
+              <Link
+                to="/blog"
+                className="text-sm text-black dark:text-white font-medium transition-all duration-200 px-4 py-1.5 rounded-full hover:bg-black/10 dark:hover:bg-white/10 flex items-center justify-center"
+              >
+                Blog
+              </Link>
+            </li>
           </ul>
           <div className="w-px h-5 bg-black/10 dark:bg-white/10" />
           <ThemeToggle />
@@ -85,6 +94,13 @@ export default function Navbar() {
               {link}
             </a>
           ))}
+          <Link
+            to="/blog"
+            className="text-black dark:text-white text-sm font-medium transition-colors"
+            onClick={() => setOpen(false)}
+          >
+            Blog
+          </Link>
         </div>
       )}
     </header>
