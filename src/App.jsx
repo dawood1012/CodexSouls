@@ -10,9 +10,9 @@ import Work from './components/Work'
 import About from './components/About'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
-import BlogTeaser from './components/BlogTeaser'
-import Blog from './pages/Blog'
-import BlogPost from './pages/BlogPost'
+// import BlogTeaser from './components/BlogTeaser'
+// import Blog from './pages/Blog'
+// import BlogPost from './pages/BlogPost'
 
 function Home() {
   return (
@@ -24,7 +24,7 @@ function Home() {
         <Services />
         <Work />
         <About />
-        <BlogTeaser />
+        {/* <BlogTeaser /> */}
         <Contact />
       </main>
       <Footer />
@@ -41,8 +41,8 @@ export default function App() {
         <HashRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
+            {/* <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} /> */}
           </Routes>
         </HashRouter>
       </div>

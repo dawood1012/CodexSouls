@@ -7,7 +7,7 @@ export default function Logo({ height = 36, className = '' }) {
   return (
     <img
       src={`${import.meta.env.BASE_URL}logo%20codex.png`}
-      alt="CodexSouls"
+      alt="the MADRIX"
       className={`object-contain dark:invert transition-all duration-300 ${className}`}
       style={{ height, width: 'auto' }}
     />

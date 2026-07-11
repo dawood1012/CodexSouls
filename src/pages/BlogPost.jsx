@@ -46,7 +46,7 @@ export default function BlogPost() {
 
   useEffect(() => {
     if (!post) return
-    document.title = `${post.title} — CodexSouls`
+    document.title = `${post.title} — the MADRIX`
     let metaDesc = document.querySelector('meta[name="description"]')
     if (metaDesc) metaDesc.setAttribute('content', post.excerpt)
 
@@ -81,10 +81,10 @@ export default function BlogPost() {
       headline: post.title,
       description: post.excerpt,
       datePublished: new Date(post.date).toISOString(),
-      author: { '@type': 'Organization', name: 'CodexSouls' },
+      author: { '@type': 'Organization', name: 'the MADRIX' },
       publisher: {
         '@type': 'Organization',
-        name: 'CodexSouls',
+        name: 'the MADRIX',
         url: 'https://dawood1012.github.io/CodexSouls/',
       },
       mainEntityOfPage: `https://dawood1012.github.io/CodexSouls/#/blog/${slug}`,
@@ -169,10 +169,10 @@ export default function BlogPost() {
                 className="w-12 h-12 rounded-full flex items-center justify-center text-white text-lg font-bold shrink-0"
                 style={{ background: `linear-gradient(135deg, ${post.accent}, #6e5bff)` }}
               >
-                CS
+                M
               </div>
               <div>
-                <p className="text-sm font-semibold text-zinc-900 dark:text-white">CodexSouls Team</p>
+                <p className="text-sm font-semibold text-zinc-900 dark:text-white">the MADRIX Team</p>
                 <p className="text-xs text-zinc-500 dark:text-white/30 mt-0.5">
                   We build AI, web, mobile &amp; design products that move fast and ship right.
                 </p>
@@ -186,7 +186,7 @@ export default function BlogPost() {
           <div className="max-w-7xl mx-auto px-8 lg:px-12 mt-24">
             <Reveal>
               <div className="border-t border-zinc-200 dark:border-white/8 pt-16 mb-10">
-                <h3 className="text-2xl font-bold text-zinc-900 dark:text-white">More from CodexSouls</h3>
+                <h3 className="text-2xl font-bold text-zinc-900 dark:text-white">More from the MADRIX</h3>
               </div>
             </Reveal>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

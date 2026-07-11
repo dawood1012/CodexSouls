@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { Menu, X } from 'lucide-react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import ThemeToggle from './ThemeToggle'
 import Logo from './Logo'
 
@@ -11,6 +11,21 @@ export default function Navbar() {
   const [hidden, setHidden] = useState(false)
   const [open, setOpen] = useState(false)
   const lastScrollY = useRef(0)
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const handleNavClick = (e, id) => {
+    e.preventDefault()
+    setOpen(false)
+    if (location.pathname !== '/') {
+      navigate('/')
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+      }, 100)
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
 
   useEffect(() => {
     const onScroll = () => {
@@ -50,20 +65,21 @@ export default function Navbar() {
               <li key={link}>
                 <a
                   href={`#${link.toLowerCase()}`}
+                  onClick={(e) => handleNavClick(e, link.toLowerCase())}
                   className="text-sm text-black dark:text-white font-medium transition-all duration-200 px-4 py-1.5 rounded-full hover:bg-black/10 dark:hover:bg-white/10 flex items-center justify-center"
                 >
                   {link}
                 </a>
               </li>
             ))}
-            <li>
+            {/* <li>
               <Link
                 to="/blog"
                 className="text-sm text-black dark:text-white font-medium transition-all duration-200 px-4 py-1.5 rounded-full hover:bg-black/10 dark:hover:bg-white/10 flex items-center justify-center"
               >
                 Blog
               </Link>
-            </li>
+            </li> */}
           </ul>
           <div className="w-px h-5 bg-black/10 dark:bg-white/10" />
           <ThemeToggle />
@@ -89,18 +105,18 @@ export default function Navbar() {
               key={link}
               href={`#${link.toLowerCase()}`}
               className="text-black dark:text-white text-sm font-medium transition-colors"
-              onClick={() => setOpen(false)}
+              onClick={(e) => handleNavClick(e, link.toLowerCase())}
             >
               {link}
             </a>
           ))}
-          <Link
+          {/* <Link
             to="/blog"
             className="text-black dark:text-white text-sm font-medium transition-colors"
             onClick={() => setOpen(false)}
           >
             Blog
-          </Link>
+          </Link> */}
         </div>
       )}
     </header>

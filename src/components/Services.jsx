@@ -4,33 +4,33 @@ import TiltCard from './TiltCard'
 const services = [
   {
     title: 'Strategy',
-    description: 'We define the vision, map the landscape, and chart the path to impact.',
-    skills: ['Market Research', 'Product Strategy', 'Competitive Analysis', 'Roadmapping', 'Business Goals'],
+    description: 'We combine customer insight with market expertise to shape strategies that move businesses forward.',
+    skills: ['Research', 'Product Strategy', 'Digital Transformation', 'Technical Strategy', 'Architecture Planning'],
   },
   {
     title: 'Design',
-    description: 'We turn vision into interface, where brand, content, and experience speak in harmony.',
+    description: 'We design digital experiences where every interaction builds trust, strengthens brands, and creates lasting impact.',
     skills: ['Experience Design', 'Interaction Design', 'Design Systems', 'Brand Extension', 'Content Design'],
   },
   {
     title: 'Build',
-    description: 'We write clean, scalable code that performs under pressure and ships on time.',
-    skills: ['Full-Stack Development', 'Mobile Apps', 'Cloud Infrastructure', 'API Design', 'Performance Optimization'],
+    description: 'We turn ambitious ideas into digital products and platforms that are built to perform, adapt, and scale.',
+    skills: ['Full-Stack Engineering', 'Mobile', 'Web', 'Solution Architecture', 'Integrations', 'Open Source'],
   },
   {
-    title: 'Deploy',
-    description: 'We launch with confidence, measure impact, and iterate based on real user data.',
-    skills: ['DevOps & CI/CD', 'Analytics Setup', 'Performance Monitoring', 'A/B Testing', 'Launch Strategy'],
+    title: 'Grow',
+    description: 'We bring strategy, technology, and insight together to create sustainable business growth.',
+    skills: ['Growth Strategy', 'Data & Analytics', 'SEO', 'CRM & Monetization', 'Experimentation'],
+  },
+  {
+    title: 'Artificial Intelligence',
+    description: 'We turn AI into practical solutions that automate work, improve decisions, and unlock new opportunities.',
+    skills: ['AI Consulting', 'LLMs', 'Workflow Automation', 'Implementation', 'AI-Driven UX'],
   },
   {
     title: 'Scale',
-    description: 'We grow your product sustainably, from hundreds to millions of users.',
-    skills: ['Growth Marketing', 'Database Optimization', 'Load Balancing', 'Team Scaling', 'Technical Debt'],
-  },
-  {
-    title: 'Support',
-    description: 'We stay by your side, fixing issues fast and shipping improvements weekly.',
-    skills: ['24/7 Monitoring', 'Incident Response', 'Bug Fixes', 'Feature Updates', 'User Support'],
+    description: 'We become an extension of your team, bringing the expertise and capacity to help you scale with confidence.',
+    skills: ['Team Augmentation', 'Dedicated Pods', 'White-Label Engineering', 'Agile Delivery'],
   },
 ]
 
@@ -41,10 +41,10 @@ export default function Services() {
         <Reveal>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-20 border-b border-zinc-200 dark:border-white/8 pb-12">
             <h2 className="text-5xl sm:text-6xl font-bold text-zinc-900 dark:text-white tracking-tight leading-tight max-w-sm">
-              Our<br />Services
+              Our<br />Expertise
             </h2>
-            <p className="text-zinc-600 dark:text-white/40 text-base max-w-xs leading-relaxed">
-              Full-spectrum capabilities from strategy to support.
+            <p className="text-zinc-600 dark:text-white/40 text-base max-w-sm leading-relaxed">
+              Shaping ambitious ideas into high-performance digital products and scalable systems.
             </p>
           </div>
         </Reveal>

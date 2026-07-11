@@ -67,9 +67,9 @@ function PostCard({ post, index }) {
 
 export default function Blog() {
   useEffect(() => {
-    document.title = 'Blog — CodexSouls'
+    document.title = 'Blog — the MADRIX'
     let metaDesc = document.querySelector('meta[name="description"]')
-    if (metaDesc) metaDesc.setAttribute('content', 'Insights on AI, web development, mobile apps, and design from the CodexSouls team.')
+    if (metaDesc) metaDesc.setAttribute('content', 'Insights on AI, web development, mobile apps, and design from the MADRIX team.')
 
     // JSON-LD for blog listing
     const script = document.createElement('script')
@@ -78,7 +78,7 @@ export default function Blog() {
     script.text = JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Blog',
-      name: 'CodexSouls Blog',
+      name: 'the MADRIX Blog',
       description: 'Insights on AI, web development, mobile, and design.',
       url: 'https://dawood1012.github.io/CodexSouls/#/blog',
     })

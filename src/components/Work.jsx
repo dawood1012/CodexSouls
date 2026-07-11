@@ -53,55 +53,7 @@ const projects = [
   },
 ]
 
-function ProjectCard({ project, isRight }) {
-  const { tag, title, desc, bgDark, bgLight, accent } = project
-  return (
-    <TiltCard
-      className={`relative ${bgLight} ${bgDark} rounded-2xl overflow-hidden cursor-pointer min-h-[420px] transition-all duration-500 border border-zinc-200 dark:border-transparent shadow-[0_4px_20px_rgba(24,24,27,0.08)] dark:shadow-none hover:shadow-[0_12px_40px_rgba(110,91,255,0.2)] dark:hover:shadow-none`}
-      maxTilt={6}
-    >
-      <div
-        className="group relative h-full w-full p-10 flex flex-col justify-between transition-all duration-500"
-      >
-        <div
-          className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl"
-          style={{
-            background: `radial-gradient(circle at ${isRight ? '20%' : '80%'} 20%, ${accent}25 0%, transparent 50%)`,
-          }}
-        />
-
-        <div className="relative">
-          <span
-            className="text-xs font-semibold tracking-widest uppercase mb-6 inline-block px-3 py-1 rounded-full transition-all duration-500 group-hover:px-4 group-hover:py-1.5"
-            style={{ color: accent, background: `${accent}15` }}
-          >
-            {tag}
-          </span>
-          <h3 className="text-3xl font-bold text-zinc-900 dark:text-white mt-3 mb-4 group-hover:translate-x-1 transition-transform duration-500">
-            {title}
-          </h3>
-          <p className="text-zinc-600 dark:text-white/40 text-sm leading-relaxed max-w-sm group-hover:text-zinc-800 dark:group-hover:text-white/55 transition-colors duration-500">
-            {desc}
-          </p>
-        </div>
-        <div className="relative mt-8 flex items-center gap-2 text-zinc-500 dark:text-white/25 group-hover:text-zinc-900 dark:group-hover:text-white/85 group-hover:gap-3 transition-all duration-500 text-sm font-medium">
-          Read Case Study
-          <ArrowUpRight
-            size={14}
-            className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-500"
-          />
-        </div>
-      </div>
-    </TiltCard>
-  )
-}
-
 export default function Work() {
-  const rows = []
-  for (let i = 0; i < projects.length; i += 2) {
-    rows.push([projects[i], projects[i + 1]])
-  }
-
   return (
     <section id="work" className="relative bg-transparent dark:bg-black py-32 transition-colors duration-500 overflow-hidden">
       <div className="max-w-7xl mx-auto px-8 lg:px-12">
@@ -110,31 +62,63 @@ export default function Work() {
             <h2 className="text-5xl sm:text-6xl font-bold text-zinc-900 dark:text-white tracking-tight leading-tight max-w-sm">
               Selected<br />Work
             </h2>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-1.5 text-sm text-zinc-600 dark:text-white/40 hover:text-zinc-900 dark:hover:text-white transition-colors font-medium hover:gap-3"
-            >
-              View all projects <ArrowUpRight size={14} />
-            </a>
+            <p className="text-zinc-600 dark:text-white/40 text-base max-w-sm leading-relaxed">
+              Complex technical challenges turned into scalable digital reality.
+            </p>
           </div>
         </Reveal>
 
-        <div className="flex flex-col gap-8">
-          {rows.map(([left, right], rowIdx) => (
-            <div key={rowIdx} className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
-              {left && (
-                <Reveal delay={0} direction="right">
-                  <ProjectCard project={left} isRight={false} />
-                </Reveal>
-              )}
-              {right && (
-                <Reveal delay={150} direction="left">
-                  <div className="md:mt-32">
-                    <ProjectCard project={right} isRight={true} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map(({ tag, title, desc, accent }, i) => (
+            <Reveal key={title} delay={i * 100} direction="up">
+              <TiltCard className="relative h-[500px] rounded-2xl overflow-hidden cursor-pointer">
+                <div className="group relative h-full w-full">
+                  <div className="offset-card absolute inset-0 bg-white/95 backdrop-blur-sm dark:bg-zinc-950 border-2 border-zinc-900/8 dark:border-white/10 rounded-2xl transition-all duration-500 group-hover:border-violet-400 dark:group-hover:border-violet-400/60 dark:shadow-none dark:group-hover:shadow-none" />
+
+                  <div
+                    className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 dark:opacity-100 transition-opacity duration-500"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)',
+                    }}
+                  />
+
+                  <div
+                    className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                    style={{
+                      background: `linear-gradient(135deg, transparent 30%, ${accent}25 50%, transparent 70%)`,
+                    }}
+                  />
+
+                  <div className="relative h-full flex flex-col justify-between p-8">
+                    <div className="flex-1 flex items-end">
+                      <h3 className="text-4xl sm:text-5xl font-bold text-zinc-900 dark:text-white group-hover:opacity-0 group-hover:-translate-y-4 transition-all duration-500">
+                        {title}
+                      </h3>
+                    </div>
+
+                    <div className="absolute inset-0 p-8 flex flex-col justify-end opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                      <div className="mb-8">
+                        <span
+                          className="text-[10px] sm:text-xs font-semibold tracking-widest uppercase mb-4 inline-block px-3 py-1 rounded-full transition-all duration-500"
+                          style={{ color: accent, background: `${accent}15` }}
+                        >
+                          {tag}
+                        </span>
+                        <h3 className="text-3xl font-bold text-zinc-900 dark:text-white mb-3">{title}</h3>
+                        <p className="text-zinc-600 dark:text-white/50 text-sm sm:text-base leading-relaxed max-w-sm">{desc}</p>
+                      </div>
+                      <div className="flex items-center gap-2 text-zinc-500 dark:text-white/40 group-hover:text-zinc-900 dark:group-hover:text-white/85 group-hover:gap-3 transition-all duration-500 text-sm font-medium mt-auto">
+                        Read Case Study
+                        <ArrowUpRight
+                          size={14}
+                          className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-500"
+                        />
+                      </div>
+                    </div>
                   </div>
-                </Reveal>
-              )}
-            </div>
+                </div>
+              </TiltCard>
+            </Reveal>
           ))}
         </div>
       </div>

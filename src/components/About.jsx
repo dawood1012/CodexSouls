@@ -3,9 +3,9 @@ import Reveal from './Reveal'
 import { useInView } from '../hooks/useInView'
 
 const stats = [
-  { value: 50, suffix: '+', label: 'Products Shipped' },
-  { value: 30, suffix: '+', label: 'Happy Clients' },
-  { value: 5, suffix: '★', label: 'Average Rating' },
+  { value: 50, suffix: '+', label: 'Products Engineered' },
+  { value: 30, suffix: '+', label: 'Strategic Partners' },
+  { value: 5, suffix: '★', label: 'Execution Rating' },
   { value: 3, suffix: 'yrs', label: 'In Business' },
 ]
 
@@ -53,16 +53,13 @@ export default function About() {
             <div>
               <p className="text-xs font-semibold tracking-widest uppercase text-zinc-500 dark:text-white/30 mb-8">About</p>
               <h2 className="text-5xl sm:text-6xl font-bold text-zinc-900 dark:text-white tracking-tight leading-tight">
-                We build like<br />it matters.
+                The Systematic<br />Matrix.
               </h2>
               <p className="mt-8 text-zinc-600 dark:text-white/40 text-base leading-relaxed">
-                We're a boutique digital studio. We partner with startups and
-                growth-stage companies to turn ambitious ideas into products people
-                actually love to use.
+                At MADRIX, we are disruptive minds operating inside a systematic matrix. We build AI-native systems and full-stack products that drive immediate and scalable business impact.
               </p>
               <p className="mt-4 text-zinc-500 dark:text-white/30 text-base leading-relaxed">
-                Small by choice — no bloated teams, no account managers playing telephone.
-                You work directly with the people building your product.
+                We operate with absolute precision—no bloated layers, no account managers playing telephone. You partner directly with the technical architects and engineers executing your vision, ensuring flawless delivery from strategy to deployment.
               </p>
             </div>
           </Reveal>

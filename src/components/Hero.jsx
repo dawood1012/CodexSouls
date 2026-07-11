@@ -121,19 +121,29 @@ export default function Hero() {
             transition: 'opacity 1s ease 0.5s, transform 1s cubic-bezier(0.22,1,0.36,1) 0.5s',
           }}
         >
-          Code That Carries
-          <br />a Soul
+          the MADRIX
         </h1>
 
         <p
-          className="mt-7 text-lg text-zinc-600 dark:text-white/45 max-w-lg leading-relaxed"
+          className="mt-7 text-xl font-medium text-zinc-800 dark:text-white/90 max-w-lg leading-relaxed"
           style={{
             opacity: mounted ? 1 : 0,
             transform: mounted ? 'translateY(0)' : 'translateY(30px)',
             transition: 'opacity 1s ease 0.85s, transform 1s cubic-bezier(0.22,1,0.36,1) 0.85s',
           }}
         >
-          Sharp strategy. Precision execution. Experiences that drive impact.
+          Disruptive Minds inside a Systematic Matrix.
+        </p>
+
+        <p
+          className="mt-3 text-lg text-zinc-600 dark:text-white/45 max-w-lg leading-relaxed"
+          style={{
+            opacity: mounted ? 1 : 0,
+            transform: mounted ? 'translateY(0)' : 'translateY(30px)',
+            transition: 'opacity 1s ease 0.85s, transform 1s cubic-bezier(0.22,1,0.36,1) 0.85s',
+          }}
+        >
+          We build AI-native systems and full-stack products that drive business impact.
         </p>
       </div>
 

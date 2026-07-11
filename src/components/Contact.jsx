@@ -4,7 +4,7 @@ import Reveal from './Reveal'
 import Magnetic from './Magnetic'
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', message: '' })
+  const [form, setForm] = useState({ name: '', email: '', website: '', message: '' })
   const [sent, setSent] = useState(false)
 
   const handleChange = (e) =>
@@ -26,17 +26,17 @@ export default function Contact() {
             <div>
               <p className="text-xs font-semibold tracking-widest uppercase text-zinc-500 dark:text-white/30 mb-8">Contact</p>
               <h2 className="text-5xl sm:text-6xl font-bold text-zinc-900 dark:text-white tracking-tight leading-tight">
-                Ready to build<br />something great?
+                Tell us what's<br />next.
               </h2>
-              <p className="mt-8 text-zinc-600 dark:text-white/40 text-base leading-relaxed max-w-xs">
-                Tell us about your project. We respond within 24 hours.
+              <p className="mt-8 text-zinc-600 dark:text-white/40 text-base leading-relaxed max-w-sm">
+                Bring us your technical challenges, and we’ll architect the execution. Drop your project details below.
               </p>
               <Magnetic strength={0.25}>
                 <a
-                  href="mailto:hello@codexsouls.dev"
+                  href="mailto:hello@themadrix.dev"
                   className="mt-8 inline-flex items-center gap-2 text-zinc-700 dark:text-white/50 hover:text-zinc-900 dark:hover:text-white text-sm font-medium transition-colors hover:gap-3"
                 >
-                  hello@codexsouls.dev <ArrowUpRight size={14} />
+                  hello@themadrix.dev <ArrowUpRight size={14} />
                 </a>
               </Magnetic>
             </div>
@@ -56,9 +56,13 @@ export default function Contact() {
                     <input type="text" name="name" required placeholder="John Doe" value={form.name} onChange={handleChange} className={inputCls} />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label className="text-xs font-semibold uppercase tracking-wide text-zinc-500 dark:text-white/30">Email</label>
+                    <label className="text-xs font-semibold uppercase tracking-wide text-zinc-500 dark:text-white/30">Work Email</label>
                     <input type="email" name="email" required placeholder="john@company.com" value={form.email} onChange={handleChange} className={inputCls} />
                   </div>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label className="text-xs font-semibold uppercase tracking-wide text-zinc-500 dark:text-white/30">Company / Agency Website (Optional but recommended)</label>
+                  <input type="text" name="website" placeholder="company.com" value={form.website} onChange={handleChange} className={inputCls} />
                 </div>
                 <div className="flex flex-col gap-2">
                   <label className="text-xs font-semibold uppercase tracking-wide text-zinc-500 dark:text-white/30">Project Details</label>
@@ -69,7 +73,7 @@ export default function Contact() {
                     type="submit"
                     className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-zinc-900 dark:text-white border border-zinc-300 dark:border-white/20 hover:border-violet-500 dark:hover:border-violet-400/60 px-7 py-3 rounded-full transition-all duration-500 hover:bg-violet-500/10 hover:gap-4 group bg-white dark:bg-transparent"
                   >
-                    Send Message
+                    Submit Brief
                     <ArrowUpRight size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500" />
                   </button>
                 </Magnetic>
