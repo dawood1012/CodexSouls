@@ -25,10 +25,10 @@ export default function Contact() {
           <Reveal direction="right">
             <div>
               <p className="text-xs font-semibold tracking-widest uppercase text-zinc-500 dark:text-white/30 mb-8">Contact</p>
-              <h2 className="text-5xl sm:text-6xl font-bold text-zinc-900 dark:text-white tracking-tight leading-tight">
+              <h2 className="preset-h2 font-bold text-zinc-900 dark:text-white tracking-tight leading-tight">
                 Tell us what's<br />next.
               </h2>
-              <p className="mt-8 text-zinc-600 dark:text-white/40 text-base leading-relaxed max-w-sm">
+              <p className="mt-8 preset-body-m text-zinc-600 dark:text-white/40 max-w-sm leading-relaxed">
                 Bring us your technical challenges, and we’ll architect the execution. Drop your project details below.
               </p>
               <Magnetic strength={0.25}>

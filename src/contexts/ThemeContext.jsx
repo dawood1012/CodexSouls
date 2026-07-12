@@ -3,18 +3,15 @@ import { createContext, useContext, useEffect, useState } from 'react'
 const ThemeContext = createContext({ theme: 'dark', toggle: () => {} })
 
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState('dark')
+  const theme = 'dark'
 
   useEffect(() => {
     const root = document.documentElement
-    if (theme === 'dark') {
-      root.classList.add('dark')
-    } else {
-      root.classList.remove('dark')
-    }
-  }, [theme])
+    root.classList.add('dark')
+    root.classList.remove('light')
+  }, [])
 
-  const toggle = () => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))
+  const toggle = () => {}
 
   return (
     <ThemeContext.Provider value={{ theme, toggle }}>

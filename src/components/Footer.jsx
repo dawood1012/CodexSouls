@@ -1,12 +1,13 @@
+import { Link } from 'react-router-dom'
 import { Twitter, Github, Linkedin, Mail } from 'lucide-react'
-import { useLocation, useNavigate } from 'react-router-dom'
 import Logo from './Logo'
 
+
 const navLinks = [
-  { label: 'Services', href: '#services' },
-  { label: 'Work', href: '#work' },
-  { label: 'Company', href: '#company' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Services', to: '/services' },
+  { label: 'Work', to: '/work' },
+  { label: 'Company', to: '/about' },
+  { label: 'Contact', to: '/contact' },
 ]
 
 const socials = [
@@ -17,20 +18,7 @@ const socials = [
 ]
 
 export default function Footer() {
-  const location = useLocation()
-  const navigate = useNavigate()
 
-  const handleNavClick = (e, targetId) => {
-    e.preventDefault()
-    if (location.pathname !== '/') {
-      navigate('/')
-      setTimeout(() => {
-        document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' })
-      }, 100)
-    } else {
-      document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
 
   return (
     <footer className="bg-white/60 backdrop-blur-md dark:bg-black dark:backdrop-blur-none border-t border-zinc-200 dark:border-white/5 transition-colors duration-500">
@@ -41,15 +29,14 @@ export default function Footer() {
           </a>
 
           <ul className="flex flex-wrap gap-x-8 gap-y-3">
-            {navLinks.map(({ label, href }) => (
+            {navLinks.map(({ label, to }) => (
               <li key={label}>
-                <a
-                  href={href}
-                  onClick={(e) => handleNavClick(e, href.substring(1))}
+                <Link
+                  to={to}
                   className="text-sm text-zinc-600 dark:text-white/30 hover:text-zinc-900 dark:hover:text-white/70 transition-colors"
                 >
                   {label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

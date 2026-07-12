@@ -1,10 +1,15 @@
 import { useState, useEffect, useRef } from 'react'
 import { Menu, X } from 'lucide-react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
-import ThemeToggle from './ThemeToggle'
+import { Link, useLocation } from 'react-router-dom'
 import Logo from './Logo'
 
-const links = ['Services', 'Work', 'Company', 'Contact']
+const links = [
+  { name: 'Expertise', path: '/services' },
+  { name: 'Work', path: '/work' },
+  { name: 'Company', path: '/about' },
+  { name: 'Blog', path: '#', disabled: true },
+  { name: 'Contact', path: '/contact' }
+]
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -12,20 +17,6 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
   const lastScrollY = useRef(0)
   const location = useLocation()
-  const navigate = useNavigate()
-
-  const handleNavClick = (e, id) => {
-    e.preventDefault()
-    setOpen(false)
-    if (location.pathname !== '/') {
-      navigate('/')
-      setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-      }, 100)
-    } else {
-      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
 
   useEffect(() => {
     const onScroll = () => {
@@ -47,76 +38,83 @@ export default function Navbar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         hidden ? '-translate-y-full' : 'translate-y-0'
       } ${
-        scrolled
-          ? 'bg-white/70 dark:bg-black/80 backdrop-blur-xl border-b border-zinc-200/60 dark:border-white/5'
-          : 'bg-transparent'
+        scrolled ? 'bg-black/60 backdrop-blur-xl' : 'bg-transparent'
       }`}
+      style={{ height: '116px' }}
     >
-      <nav className="max-w-7xl mx-auto px-8 lg:px-12 h-20 flex items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center group shrink-0 hover:scale-105 transition-transform duration-300">
-          <Logo height={56} />
-        </Link>
+      <nav className="max-w-7xl mx-auto px-8 lg:px-12 h-full flex items-center w-full">
+        {/* Logo takes up exactly the left half of the space */}
+        <div className="flex-1 flex items-center">
+          <Link to="/" className="flex items-center group shrink-0 hover:scale-105 transition-transform duration-300">
+            <Logo height={42} className="brightness-200" />
+          </Link>
+        </div>
 
-        {/* Right side — links + toggle grouped together */}
-        <div className="hidden md:flex items-center gap-8">
-          <ul className="flex items-center gap-2">
-            {links.map((link) => (
-              <li key={link}>
-                <a
-                  href={`#${link.toLowerCase()}`}
-                  onClick={(e) => handleNavClick(e, link.toLowerCase())}
-                  className="text-sm text-black dark:text-white font-medium transition-all duration-200 px-4 py-1.5 rounded-full hover:bg-black/10 dark:hover:bg-white/10 flex items-center justify-center"
+        {/* Desktop links take up the right half of the space (starting from the center) and are evenly distributed far from each other */}
+        <div className="hidden md:flex flex-1 items-center justify-between">
+          {links.map((link) => {
+            if (link.disabled) {
+              return (
+                <span
+                  key={link.name}
+                  className="text-[16px] font-medium text-white/30 cursor-not-allowed select-none"
+                  title="Coming soon"
                 >
-                  {link}
-                </a>
-              </li>
-            ))}
-            {/* <li>
+                  {link.name}
+                </span>
+              )
+            }
+
+            // Always solid white font color
+            return (
               <Link
-                to="/blog"
-                className="text-sm text-black dark:text-white font-medium transition-all duration-200 px-4 py-1.5 rounded-full hover:bg-black/10 dark:hover:bg-white/10 flex items-center justify-center"
+                key={link.name}
+                to={link.path}
+                className="text-[16px] font-medium text-white hover:text-white/70 transition-colors duration-300"
               >
-                Blog
+                {link.name}
               </Link>
-            </li> */}
-          </ul>
-          <div className="w-px h-5 bg-black/10 dark:bg-white/10" />
-          <ThemeToggle />
+            )
+          })}
         </div>
 
         {/* Mobile controls */}
-        <div className="md:hidden flex items-center gap-2">
-          <ThemeToggle />
+        <div className="md:hidden flex flex-1 justify-end items-center">
           <button
-            className="text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white"
+            className="text-white hover:text-white/80"
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
           >
-            {open ? <X size={22} /> : <Menu size={22} />}
+            {open ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </nav>
 
+      {/* Full-screen overlay mobile navigation */}
       {open && (
-        <div className="md:hidden bg-white/95 dark:bg-black/95 backdrop-blur-md border-t border-black/5 dark:border-white/5 px-8 py-6 flex flex-col gap-5">
-          {links.map((link) => (
-            <a
-              key={link}
-              href={`#${link.toLowerCase()}`}
-              className="text-black dark:text-white text-sm font-medium transition-colors"
-              onClick={(e) => handleNavClick(e, link.toLowerCase())}
-            >
-              {link}
-            </a>
-          ))}
-          {/* <Link
-            to="/blog"
-            className="text-black dark:text-white text-sm font-medium transition-colors"
-            onClick={() => setOpen(false)}
-          >
-            Blog
-          </Link> */}
+        <div className="fixed inset-x-0 top-[116px] bottom-0 bg-black/95 backdrop-blur-2xl px-8 py-10 flex flex-col gap-6 z-50 animate-fade-in">
+          {links.map((link) => {
+            if (link.disabled) {
+              return (
+                <span
+                  key={link.name}
+                  className="text-4xl font-medium tracking-tight py-3 text-white/30 cursor-not-allowed"
+                >
+                  {link.name}
+                </span>
+              )
+            }
+            return (
+              <Link
+                key={link.name}
+                to={link.path}
+                className="text-4xl font-medium tracking-tight transition-colors py-3 text-white hover:text-violet-400"
+                onClick={() => setOpen(false)}
+              >
+                {link.name}
+              </Link>
+            )
+          })}
         </div>
       )}
     </header>
