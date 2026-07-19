@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route, Outlet } from 'react-router-dom'
+import { HashRouter, Routes, Route, Outlet, useLocation } from 'react-router-dom'
 import { ThemeProvider } from './contexts/ThemeContext'
 import Cursor from './components/Cursor'
 import ScrollProgress from './components/ScrollProgress'
@@ -14,9 +14,16 @@ import WorkPage from './pages/WorkPage'
 import AboutPage from './pages/AboutPage'
 import ContactPage from './pages/ContactPage'
 
+// Import Continuous Video Background for Subpages
+import VideoBackground from './components/VideoBackground'
+
 function Layout() {
+  const location = useLocation()
+  const isHome = location.pathname === '/'
+
   return (
     <>
+      {!isHome && <VideoBackground />}
       <ScrollToTop />
       <Navbar />
       <main className="min-h-[85vh]">
@@ -30,7 +37,7 @@ function Layout() {
 export default function App() {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-transparent dark:bg-black text-black dark:text-white overflow-x-hidden transition-colors duration-500 relative">
+      <div className="min-h-screen bg-transparent dark:bg-transparent text-black dark:text-white overflow-x-hidden transition-colors duration-500 relative">
         {/* Global Smoking Glowing Background Animation */}
         <div className="fixed inset-0 overflow-hidden pointer-events-none z-[-1] opacity-40">
           <div className="absolute top-[10%] left-[-15%] w-[80vw] h-[80vw] bg-violet-600/20 rounded-full filter blur-[120px] animate-smoke-1" />

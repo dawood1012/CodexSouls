@@ -8,7 +8,7 @@ export default function PageHero({ label, heading, subtitle }) {
   }, [])
 
   return (
-    <section className="relative bg-black text-white overflow-hidden">
+    <section className="relative bg-transparent text-white overflow-hidden">
       <div
         className="max-w-5xl mx-auto px-8 lg:px-12 pt-48 pb-24 flex flex-col items-center text-center"
         style={{
@@ -18,7 +18,7 @@ export default function PageHero({ label, heading, subtitle }) {
         }}
       >
         {label && (
-          <p className="text-[#6E5BFF] font-semibold text-sm tracking-widest uppercase mb-6">
+          <p className="text-[#6E5BFF] font-semibold text-base md:text-lg tracking-widest uppercase mb-6">
             {label}
           </p>
         )}

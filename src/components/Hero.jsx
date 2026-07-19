@@ -62,8 +62,8 @@ export default function Hero() {
         <div 
           className="relative w-full h-[80vh] min-h-[600px] flex justify-center items-center overflow-hidden mt-[-200px] z-10"
           style={{
-            maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 100%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 100%)'
+            maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 70%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 70%, transparent 100%)'
           }}
         >
           <video

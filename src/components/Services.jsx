@@ -53,7 +53,7 @@ export default function Services({ teaser = false }) {
   return (
     <section id="services" className="relative bg-transparent dark:bg-transparent py-24 transition-colors duration-500 overflow-hidden">
 
-      <div className="relative z-10 max-w-7xl mx-auto px-8 lg:px-12">
+      <div className="relative z-10 max-w-[90rem] mx-auto px-8 lg:px-12">
         <Reveal>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-20 border-b border-white/10 pb-12">
             <div>
