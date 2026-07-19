@@ -30,7 +30,13 @@ function Layout() {
 export default function App() {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-transparent dark:bg-black text-black dark:text-white overflow-x-hidden transition-colors duration-500">
+      <div className="min-h-screen bg-transparent dark:bg-black text-black dark:text-white overflow-x-hidden transition-colors duration-500 relative">
+        {/* Global Smoking Glowing Background Animation */}
+        <div className="fixed inset-0 overflow-hidden pointer-events-none z-[-1] opacity-40">
+          <div className="absolute top-[10%] left-[-15%] w-[80vw] h-[80vw] bg-violet-600/20 rounded-full filter blur-[120px] animate-smoke-1" />
+          <div className="absolute bottom-[-15%] right-[-15%] w-[70vw] h-[70vw] bg-[#FF52B7]/15 rounded-full filter blur-[130px] animate-smoke-2" />
+          <div className="absolute top-[35%] left-[15%] w-[75vw] h-[75vw] bg-[#6E5BFF]/15 rounded-full filter blur-[110px] animate-smoke-3" />
+        </div>
         <Cursor />
         <ScrollProgress />
         <SmoothScroll />

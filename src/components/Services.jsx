@@ -51,14 +51,7 @@ export default function Services({ teaser = false }) {
   const displayedServices = teaser ? services.slice(0, 3) : services
 
   return (
-    <section id="services" className="relative bg-zinc-950 dark:bg-black py-24 transition-colors duration-500 overflow-hidden">
-      {/* Background radial glow */}
-      <div 
-        className="pointer-events-none absolute inset-0 opacity-40"
-        style={{
-          background: 'radial-gradient(circle at 50% 50%, rgba(110,91,255,0.15) 0%, transparent 60%)'
-        }}
-      />
+    <section id="services" className="relative bg-transparent dark:bg-transparent py-24 transition-colors duration-500 overflow-hidden">
 
       <div className="relative z-10 max-w-7xl mx-auto px-8 lg:px-12">
         <Reveal>
@@ -78,34 +71,38 @@ export default function Services({ teaser = false }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {displayedServices.map(({ title, description, skills, gradient, badge }, i) => (
             <Reveal key={title} delay={i * 100} direction="up">
-              <div className="relative min-h-[520px] rounded-3xl bg-zinc-900 border border-white/5 overflow-hidden flex flex-col justify-between p-8 transition-all duration-500 hover:border-violet-500/30 hover:scale-[1.02] transform-gpu">
+              <div className="group relative min-h-[520px] rounded-3xl bg-transparent overflow-hidden flex flex-col justify-center items-center p-8 transition-all duration-500 hover:scale-[1.02] transform-gpu cursor-pointer">
                 {/* Dynamic animated sprite gradient background placeholder */}
                 <div 
-                  className="absolute inset-x-0 top-0 h-44 opacity-80"
+                  className="absolute inset-0 opacity-30 transition-opacity duration-500 group-hover:opacity-50"
                   style={{ background: gradient }}
                 />
                 
-                {/* Card tag */}
-                <div className="relative z-10 self-start">
-                  <span className="px-3.5 py-1 rounded-full text-xs font-semibold text-violet-300 bg-violet-500/10 border border-violet-500/20 uppercase tracking-wider">
+                {/* ===== Content — always bottom-left ===== */}
+                <div className="absolute inset-0 z-10 flex flex-col justify-end p-8">
+                  {/* Badge — always visible */}
+                  <span className="self-start px-3.5 py-1 rounded-full text-xs font-semibold text-violet-300 bg-violet-500/10 border border-violet-500/20 uppercase tracking-wider mb-4">
                     {badge}
                   </span>
-                </div>
 
-                <div className="relative z-10 mt-28 flex-1 flex flex-col justify-end">
-                  <h3 className="preset-h3 text-white font-bold mb-4">{title}</h3>
-                  <p className="preset-body-s text-white/60 mb-6 leading-relaxed">{description}</p>
-                  
-                  {/* Skill lists styled like fueled.com footer details */}
-                  <div className="border-t border-white/10 pt-4 flex flex-wrap gap-x-3 gap-y-2">
-                    {skills.map((skill, idx) => (
-                      <span 
-                        key={idx}
-                        className="text-xs font-semibold text-white/40 hover:text-white transition-colors"
-                      >
-                        {skill}{idx < skills.length - 1 && '  ·'}
-                      </span>
-                    ))}
+                  {/* Title — always visible */}
+                  <h3 className="preset-h2 text-white font-bold mb-0 transition-all duration-500 group-hover:text-2xl group-hover:mb-3">{title}</h3>
+
+                  {/* Details — hidden by default, revealed on hover */}
+                  <div className="max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-out group-hover:max-h-[300px] group-hover:opacity-100">
+                    <p className="preset-body-s text-white/60 mb-5 leading-relaxed">{description}</p>
+                    
+                    {/* Skill list */}
+                    <div className="border-t border-white/10 pt-4 flex flex-wrap gap-x-3 gap-y-2">
+                      {skills.map((skill, idx) => (
+                        <span 
+                          key={idx}
+                          className="text-xs font-semibold text-white/40 hover:text-white transition-colors"
+                        >
+                          {skill}{idx < skills.length - 1 && '  ·'}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>

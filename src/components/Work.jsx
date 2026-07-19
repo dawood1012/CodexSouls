@@ -10,7 +10,8 @@ const projects = [
     gradient: 'linear-gradient(135deg, #1e1b4b 0%, #311042 100%)',
     accent: '#6E5BFF',
     tags: ['AI-Native', 'Backend', 'Design', 'Research', 'SaaS'],
-    logoText: 'NeuralDesk'
+    logoText: 'NeuralDesk',
+    headline: 'We Scaled Automated Customer Support',
   },
   {
     tag: 'Mobile · Fintech',
@@ -19,7 +20,8 @@ const projects = [
     gradient: 'linear-gradient(135deg, #180029 0%, #4c0519 100%)',
     accent: '#FF52B7',
     tags: ['iOS App', 'Branding', 'Mobile Dev', 'Fintech', 'Research'],
-    logoText: 'PocketLedger'
+    logoText: 'PocketLedger',
+    headline: 'We Sparked Mobile Savings Growth',
   },
   {
     tag: 'Web · E-commerce',
@@ -28,7 +30,8 @@ const projects = [
     gradient: 'linear-gradient(135deg, #022c22 0%, #064e3b 100%)',
     accent: '#00A6FF',
     tags: ['Backend', 'Commerce', 'Next.js', 'Web Dev', 'SEO'],
-    logoText: 'Versa Store'
+    logoText: 'Versa Store',
+    headline: 'We Put Headless E-commerce on the Map',
   },
   {
     tag: 'Design · Brand',
@@ -37,7 +40,8 @@ const projects = [
     gradient: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%)',
     accent: '#FBBC09',
     tags: ['Design System', 'Brand Identity', 'Healthcare', 'Research'],
-    logoText: 'Luminary OS'
+    logoText: 'Luminary OS',
+    headline: 'We Engineered Healthcare Design Systems',
   },
   {
     tag: 'AI · Productivity',
@@ -46,7 +50,8 @@ const projects = [
     gradient: 'linear-gradient(135deg, #311042 0%, #030712 100%)',
     accent: '#6E5BFF',
     tags: ['Product Design', 'React Native', 'AI Integration', 'Productivity'],
-    logoText: 'Cortex Notes'
+    logoText: 'Cortex Notes',
+    headline: 'We Reimagined Productivity Tools',
   },
   {
     tag: 'Web · Developer Tools',
@@ -55,7 +60,8 @@ const projects = [
     gradient: 'linear-gradient(135deg, #050505 0%, #1e1e24 100%)',
     accent: '#FF52B7',
     tags: ['CI/CD', 'Docker', 'React', 'DevOps', 'Developer Tool'],
-    logoText: 'StackForge'
+    logoText: 'StackForge',
+    headline: 'We Accelerated Development Workflows',
   },
 ]
 
@@ -63,7 +69,7 @@ export default function Work({ teaser = false }) {
   const displayedProjects = teaser ? projects.slice(0, 3) : projects
 
   return (
-    <section id="work" className="bg-white dark:bg-black py-24 transition-colors duration-500 overflow-hidden">
+    <section id="work" className="bg-transparent dark:bg-transparent py-24 transition-colors duration-500 overflow-hidden">
       <div className="max-w-7xl mx-auto px-8 lg:px-12">
         <Reveal>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-20 border-b border-zinc-200 dark:border-white/8 pb-12">
@@ -83,43 +89,48 @@ export default function Work({ teaser = false }) {
           {displayedProjects.map((project, i) => (
             <Reveal key={project.title} delay={i * 100} direction="up">
               <div 
-                className="relative min-h-[500px] rounded-[40px] overflow-hidden flex flex-col justify-end p-8 md:p-16 group cursor-pointer transition-transform duration-700 hover:scale-[1.02] transform-gpu"
+                className="group relative min-h-[500px] rounded-[40px] overflow-hidden flex flex-col justify-center items-center cursor-pointer transition-transform duration-700 hover:scale-[1.02] transform-gpu"
                 style={{
                   background: project.gradient,
                 }}
               >
-                {/* Background Dim Tint overlay matching fueled.com */}
-                <div className="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-all duration-500" />
+                {/* Background Dim Tint overlay */}
+                <div className="absolute inset-0 bg-black/35 group-hover:bg-black/50 transition-all duration-500" />
                 
                 {/* Interactive gradient glow border decoration */}
                 <div className="absolute inset-0 border border-white/10 group-hover:border-violet-500/30 rounded-[40px] transition-all duration-500" />
 
-                {/* Cover inner container */}
-                <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-8 h-full w-full">
-                  <div className="max-w-2xl flex flex-col items-start gap-4">
-                    {/* Stylized client logo text */}
-                    <div 
-                      className="text-2xl font-bold tracking-tight uppercase"
-                      style={{ color: project.accent }}
-                    >
-                      {project.logoText}
-                    </div>
+                {/* Content wrapper — always bottom-left */}
+                <div className="absolute inset-0 z-10 flex flex-col justify-end p-8 md:p-16">
 
-                    <h3 className="preset-h3 text-white font-bold group-hover:opacity-90 transition-opacity">
-                      {project.title === 'NeuralDesk' && 'We Scaled Automated Customer Support'}
-                      {project.title === 'PocketLedger' && 'We Sparked Mobile Savings Growth'}
-                      {project.title === 'Versa Store' && 'We Put Headless E-commerce on the Map'}
-                      {project.title === 'Luminary OS' && 'We Engineered Healthcare Design Systems'}
-                      {project.title === 'Cortex Notes' && 'We Reimagined Productivity Tools'}
-                      {project.title === 'StackForge' && 'We Accelerated Development Workflows'}
-                    </h3>
+                  {/* Tag — always visible */}
+                  <span 
+                    className="text-xs font-bold uppercase tracking-[0.2em] mb-3"
+                    style={{ color: project.accent }}
+                  >
+                    {project.tag}
+                  </span>
 
-                    <p className="preset-body-m text-white/70 max-w-lg">
+                  {/* Title — always visible */}
+                  <h3 
+                    className="text-4xl md:text-6xl font-bold tracking-tight mb-0 transition-all duration-500 group-hover:mb-5 group-hover:text-3xl md:group-hover:text-4xl"
+                    style={{ color: project.accent }}
+                  >
+                    {project.logoText}
+                  </h3>
+
+                  {/* Details — hidden by default, revealed on hover */}
+                  <div className="max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-out group-hover:max-h-[400px] group-hover:opacity-100">
+                    <h4 className="preset-h4 text-white font-bold mb-3">
+                      {project.headline}
+                    </h4>
+
+                    <p className="preset-body-m text-white/70 max-w-lg mb-4">
                       {project.desc}
                     </p>
 
-                    {/* Tags matching fueled.com tag styling */}
-                    <div className="flex flex-wrap gap-2 mt-6">
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-2 mb-5">
                       {project.tags.map((tag) => (
                         <span 
                           key={tag} 
@@ -129,12 +140,12 @@ export default function Work({ teaser = false }) {
                         </span>
                       ))}
                     </div>
-                  </div>
 
-                  {/* Read Case Study Button style */}
-                  <div className="shrink-0 flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white text-white hover:text-black font-semibold text-sm transition-all duration-300 group-hover:translate-x-1">
-                    <span>Read Case Study</span>
-                    <ArrowRight size={16} />
+                    {/* Read Case Study Button */}
+                    <div className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white text-white hover:text-black font-semibold text-sm transition-all duration-300 cursor-pointer">
+                      <span>Read Case Study</span>
+                      <ArrowRight size={16} />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -142,7 +153,7 @@ export default function Work({ teaser = false }) {
           ))}
         </div>
 
-        {/* Explore Our Work Footer teaser matching fueled.com */}
+        {/* Explore Our Work Footer teaser */}
         {teaser && (
           <div className="mt-16 flex justify-center">
             <Reveal delay={200}>

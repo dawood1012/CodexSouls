@@ -11,7 +11,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex flex-col items-center w-full bg-black text-white overflow-hidden pt-[45vh] md:pt-[55vh]"
+      className="relative flex flex-col items-center w-full bg-transparent text-white overflow-hidden pt-[45vh] md:pt-[55vh]"
     >
       {/* 
         1. TOP TEXT BLOCK (Categories + MADRIX)
@@ -30,13 +30,13 @@ export default function Hero() {
               <span className="preset-sub-m font-normal text-[#6E5BFF] tracking-wide transition-all duration-500 hover:text-white">
                 {tag}
               </span>
-              {i < 3 && <span className="text-white/20 mx-4 text-lg">·</span>}
+              {i < 3 && <span className="text-white/20 mx-2 text-2xl">·</span>}
             </span>
           ))}
         </div>
 
-        <h1 className="preset-h1 font-bold tracking-[-0.035em] text-white mb-2 cursor-default transition-all duration-700 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#FF52B7] hover:to-[#6E5BFF] hover:scale-[1.02]">
-          the MADRIX
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white mb-2 cursor-default transition-all duration-700 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#FF52B7] hover:to-[#6E5BFF] hover:scale-[1.02] md:whitespace-nowrap">
+          Disruptive Minds inside a Systematic Matrix
         </h1>
       </div>
 
@@ -49,8 +49,8 @@ export default function Hero() {
           "Disruptive Minds..." text 
           Positioned here so it overlaps the top chunk of the video! 
         */}
-        <p className="relative z-30 preset-sub-m font-medium text-white max-w-4xl text-center leading-relaxed drop-shadow-[0_0_10px_rgba(0,0,0,0.8)] pb-8">
-          Disruptive Minds inside a Systematic Matrix.
+        <p className="relative z-30 preset-sub-m font-medium text-white/70 max-w-3xl text-center leading-relaxed drop-shadow-[0_0_10px_rgba(0,0,0,0.8)] pb-8">
+          We build AI-native systems and full-stack products that drive business impact.
         </p>
 
         {/* 

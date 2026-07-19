@@ -48,7 +48,7 @@ function StatCounter({ value, suffix, label }) {
 
 export default function About({ teaser = false }) {
   return (
-    <section id="company" className="relative bg-white dark:bg-black py-24 border-t border-zinc-200/60 dark:border-white/5 transition-colors duration-500 overflow-hidden">
+    <section id="company" className="relative bg-transparent dark:bg-transparent py-24 border-t border-zinc-200/60 dark:border-white/5 transition-colors duration-500 overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
           <Reveal direction="right">

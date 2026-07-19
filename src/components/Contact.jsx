@@ -16,10 +16,10 @@ export default function Contact() {
   }
 
   const inputCls =
-    'bg-transparent border-b border-zinc-300 dark:border-white/10 focus:border-violet-500 dark:focus:border-violet-400/60 py-3 text-zinc-900 dark:text-white text-sm placeholder:text-zinc-400 dark:placeholder:text-white/15 outline-none transition-all duration-500 hover:border-zinc-500 dark:hover:border-white/30 focus:translate-x-1'
+    'bg-transparent border-b border-white/20 focus:border-white py-3 text-white text-sm placeholder:text-white/30 outline-none transition-all duration-500 hover:border-white/50 focus:translate-x-1'
 
   return (
-    <section id="contact" className="relative bg-transparent dark:bg-black py-32 border-t border-zinc-200/60 dark:border-white/5 transition-colors duration-500 overflow-hidden">
+    <section id="contact" className="relative bg-transparent dark:bg-transparent py-32 border-t border-zinc-200/60 dark:border-white/5 transition-colors duration-500 overflow-hidden">
       <div className="max-w-7xl mx-auto px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
           <Reveal direction="right">
@@ -49,29 +49,29 @@ export default function Contact() {
                 <p className="text-zinc-600 dark:text-white/40">We'll be in touch shortly.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+              <form onSubmit={handleSubmit} className="flex flex-col gap-6 bg-zinc-900/60 dark:bg-zinc-900/30 border border-zinc-200/50 dark:border-white/5 rounded-[32px] p-8 md:p-12 shadow-xl backdrop-blur-md">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="flex flex-col gap-2">
-                    <label className="text-xs font-semibold uppercase tracking-wide text-zinc-500 dark:text-white/30">Name</label>
+                    <label className="text-xs font-semibold uppercase tracking-wide text-white/70">Name</label>
                     <input type="text" name="name" required placeholder="John Doe" value={form.name} onChange={handleChange} className={inputCls} />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label className="text-xs font-semibold uppercase tracking-wide text-zinc-500 dark:text-white/30">Work Email</label>
+                    <label className="text-xs font-semibold uppercase tracking-wide text-white/70">Work Email</label>
                     <input type="email" name="email" required placeholder="john@company.com" value={form.email} onChange={handleChange} className={inputCls} />
                   </div>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label className="text-xs font-semibold uppercase tracking-wide text-zinc-500 dark:text-white/30">Company / Agency Website (Optional but recommended)</label>
+                  <label className="text-xs font-semibold uppercase tracking-wide text-white/70">Company / Agency Website (Optional but recommended)</label>
                   <input type="text" name="website" placeholder="company.com" value={form.website} onChange={handleChange} className={inputCls} />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label className="text-xs font-semibold uppercase tracking-wide text-zinc-500 dark:text-white/30">Project Details</label>
+                  <label className="text-xs font-semibold uppercase tracking-wide text-white/70">Project Details</label>
                   <textarea name="message" required rows={5} placeholder="We're building a SaaS tool and need help with..." value={form.message} onChange={handleChange} className={`${inputCls} resize-none`} />
                 </div>
                 <Magnetic strength={0.4} className="self-start">
                   <button
                     type="submit"
-                    className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-zinc-900 dark:text-white border border-zinc-300 dark:border-white/20 hover:border-violet-500 dark:hover:border-violet-400/60 px-7 py-3 rounded-full transition-all duration-500 hover:bg-violet-500/10 hover:gap-4 group bg-white dark:bg-transparent"
+                    className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-white border border-white/20 hover:border-white px-7 py-3 rounded-full transition-all duration-500 hover:bg-white/10 hover:gap-4 group bg-transparent"
                   >
                     Submit Brief
                     <ArrowUpRight size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500" />
