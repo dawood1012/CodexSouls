@@ -3,8 +3,6 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   base: '/CodexSouls/',
-  build: {
-    outDir: 'docs',
-  },
+
   plugins: [react()],
 })
