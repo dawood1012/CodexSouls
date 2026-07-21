@@ -25,7 +25,7 @@ export default function Hero() {
         }}
       >
         <div className="flex flex-wrap justify-center items-center mb-6">
-          {['AI', 'WEB', 'MOBILE', 'DESIGN'].map((tag, i) => (
+          {['AI', 'WEB', 'MOBILE', 'GROW'].map((tag, i) => (
             <span key={tag} className="flex items-center group cursor-default">
               <span className="preset-sub-m font-normal text-[#6E5BFF] tracking-wide transition-all duration-500 hover:text-white">
                 {tag}

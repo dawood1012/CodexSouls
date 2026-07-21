@@ -49,7 +49,7 @@ export default function Contact() {
                 <p className="text-zinc-600 dark:text-white/40">We'll be in touch shortly.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-6 bg-zinc-900/60 dark:bg-zinc-900/30 border border-zinc-200/50 dark:border-white/5 rounded-[32px] p-8 md:p-12 shadow-xl backdrop-blur-md">
+              <form onSubmit={handleSubmit} className="flex flex-col gap-6 bg-zinc-900 dark:bg-zinc-900 border border-zinc-200/50 dark:border-white/10 rounded-[32px] p-8 md:p-12 shadow-2xl">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="flex flex-col gap-2">
                     <label className="text-xs font-semibold uppercase tracking-wide text-white/70">Name</label>

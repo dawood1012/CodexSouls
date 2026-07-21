@@ -14,8 +14,7 @@ import WorkPage from './pages/WorkPage'
 import AboutPage from './pages/AboutPage'
 import ContactPage from './pages/ContactPage'
 
-// Import Continuous Video Background for Subpages
-import VideoBackground from './components/VideoBackground'
+// Subpage video background is now integrated directly into PageHero.jsx
 
 function Layout() {
   const location = useLocation()
@@ -23,7 +22,6 @@ function Layout() {
 
   return (
     <>
-      {!isHome && <VideoBackground />}
       <ScrollToTop />
       <Navbar />
       <main className="min-h-[85vh]">

@@ -13,7 +13,7 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['sans-serif'],
+        sans: ['Inter', 'sans-serif'],
       },
       animation: {
         'fade-up': 'fadeUp 0.7s ease forwards',

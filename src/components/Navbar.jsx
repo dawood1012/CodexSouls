@@ -47,7 +47,7 @@ export default function Navbar() {
       }`}
       style={{ height: '116px' }}
     >
-      <nav className="max-w-7xl mx-auto px-8 lg:px-12 h-full flex items-center w-full">
+      <nav className="max-w-none w-full mx-auto px-2 md:px-4 lg:px-6 h-full flex items-center">
         {/* Logo takes up exactly the left half of the space */}
         <div className="flex-1 flex items-center">
           <Link to="/" className="flex items-center group shrink-0 hover:scale-105 transition-transform duration-300">

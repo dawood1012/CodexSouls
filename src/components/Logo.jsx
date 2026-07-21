@@ -7,10 +7,10 @@ export default function Logo({ className = '' }) {
     <span
       className={`select-none whitespace-nowrap ${className}`}
       style={{
-        fontFamily: "'Aeonik', sans-serif",
+        fontFamily: "'Inter', sans-serif",
         fontWeight: 400,
-        fontSize: 'clamp(28px, 2.4vw, 38px)',
-        letterSpacing: '0.02em',
+        fontSize: 'clamp(28px, 3vw, 42px)',
+        letterSpacing: '0.01em',
         lineHeight: 1,
         color: 'white',
       }}

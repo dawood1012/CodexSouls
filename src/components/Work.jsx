@@ -70,7 +70,7 @@ export default function Work({ teaser = false }) {
 
   return (
     <section id="work" className="bg-transparent dark:bg-transparent py-24 transition-colors duration-500 overflow-hidden">
-      <div className="max-w-[90rem] mx-auto px-8 lg:px-12">
+      <div className="max-w-none w-full mx-auto px-4 lg:px-6">
         <Reveal>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-20 border-b border-zinc-200 dark:border-white/8 pb-12">
             <div>
